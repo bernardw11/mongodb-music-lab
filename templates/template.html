@@ -3,9 +3,21 @@
         <title>MUSIC!</title>
     </head>
     <body>
-      <h1>MUSIC</h1>
-
-
+        <h1>MUSIC</h1>
+        <form method="post" action="/add_song">
+            <label for="song_name">Song:</label>
+            <input type="text" name="song_name" value=""><br>
+            <label for="song_artist">Artist:</label>
+            <input type="text" name="song_artist" value=""><br>
+            <label for="song_description">Description for why you like this song:</label>
+            <input type="text" name="song_description" value=""><br>
+            <input type="submit" value="Submit">
+        </form>
+        <ul>
+            {% for songelement in songs %}
+            <li> {{songelement.song}} by <a href = "artist/{{songelement.artist}}"> {{songelement.artist}}</a> - {{songelement.description}}</li>
+            {% endfor %}
+        </ul>
 
 
     </body>
